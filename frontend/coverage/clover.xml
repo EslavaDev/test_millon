@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1761793476947" clover="3.2.0">
+  <project timestamp="1761793476947" name="All files">
+    <metrics statements="98" coveredstatements="97" conditionals="137" coveredconditionals="132" methods="29" coveredmethods="28" elements="264" coveredelements="257" complexity="0" loc="98" ncloc="98" packages="3" files="9" classes="9"/>
+    <package name="components.properties">
+      <metrics statements="52" coveredstatements="51" conditionals="73" coveredconditionals="71" methods="18" coveredmethods="17"/>
+      <file name="PropertyCard.tsx" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/components/properties/PropertyCard.tsx">
+        <metrics statements="8" coveredstatements="7" conditionals="6" coveredconditionals="6" methods="2" coveredmethods="1"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="18" type="stmt"/>
+        <line num="13" count="18" type="stmt"/>
+        <line num="15" count="18" type="cond" truecount="4" falsecount="0"/>
+        <line num="16" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="18" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="22" count="18" type="stmt"/>
+      </file>
+      <file name="PropertyDetail.tsx" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/components/properties/PropertyDetail.tsx">
+        <metrics statements="13" coveredstatements="13" conditionals="20" coveredconditionals="18" methods="5" coveredmethods="5"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="14" count="28" type="cond" truecount="1" falsecount="1"/>
+        <line num="15" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="18" count="15" type="stmt"/>
+        <line num="19" count="15" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="15" type="cond" truecount="1" falsecount="1"/>
+        <line num="22" count="15" type="stmt"/>
+        <line num="24" count="15" type="stmt"/>
+        <line num="61" count="26" type="stmt"/>
+        <line num="63" count="1" type="stmt"/>
+        <line num="187" count="14" type="stmt"/>
+      </file>
+      <file name="PropertyFilters.tsx" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/components/properties/PropertyFilters.tsx">
+        <metrics statements="21" coveredstatements="21" conditionals="39" coveredconditionals="39" methods="8" coveredmethods="8"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="20" count="5" type="cond" truecount="5" falsecount="0"/>
+        <line num="23" count="5" type="cond" truecount="5" falsecount="0"/>
+        <line num="27" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="30" count="4" type="stmt"/>
+        <line num="38" count="5" type="cond" truecount="4" falsecount="0"/>
+        <line num="39" count="1" type="stmt"/>
+        <line num="41" count="4" type="stmt"/>
+        <line num="49" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="70" count="1" type="stmt"/>
+        <line num="80" count="27" type="stmt"/>
+        <line num="90" count="27" type="stmt"/>
+        <line num="91" count="2" type="stmt"/>
+        <line num="98" count="2" type="stmt"/>
+        <line num="101" count="27" type="stmt"/>
+        <line num="102" count="2" type="stmt"/>
+        <line num="108" count="2" type="stmt"/>
+        <line num="111" count="27" type="stmt"/>
+      </file>
+      <file name="PropertyList.tsx" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/components/properties/PropertyList.tsx">
+        <metrics statements="10" coveredstatements="10" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="16" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="20" count="12" type="stmt"/>
+        <line num="37" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="2" type="stmt"/>
+        <line num="63" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="64" count="1" type="stmt"/>
+        <line num="91" count="4" type="stmt"/>
+        <line num="95" count="8" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.ui">
+      <metrics statements="32" coveredstatements="32" conditionals="50" coveredconditionals="49" methods="6" coveredmethods="6"/>
+      <file name="Button.tsx" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/components/ui/Button.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="1" coveredmethods="1"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="20" count="82" type="stmt"/>
+        <line num="22" count="82" type="stmt"/>
+        <line num="32" count="82" type="stmt"/>
+        <line num="38" count="82" type="stmt"/>
+        <line num="40" count="82" type="stmt"/>
+      </file>
+      <file name="Card.tsx" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/components/ui/Card.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="18" coveredconditionals="17" methods="2" coveredmethods="2"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="17" count="28" type="stmt"/>
+        <line num="19" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="23" count="28" type="cond" truecount="4" falsecount="0"/>
+        <line num="27" count="28" type="stmt"/>
+        <line num="29" count="28" type="stmt"/>
+        <line num="38" count="2" type="cond" truecount="3" falsecount="1"/>
+        <line num="39" count="2" type="stmt"/>
+        <line num="40" count="2" type="stmt"/>
+      </file>
+      <file name="Input.tsx" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/components/ui/Input.tsx">
+        <metrics statements="8" coveredstatements="8" conditionals="13" coveredconditionals="13" methods="1" coveredmethods="1"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="121" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="121" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="121" type="stmt"/>
+        <line num="17" count="121" type="cond" truecount="2" falsecount="0"/>
+        <line num="21" count="121" type="stmt"/>
+        <line num="23" count="121" type="stmt"/>
+        <line num="55" count="2" type="stmt"/>
+      </file>
+      <file name="Select.tsx" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/components/ui/Select.tsx">
+        <metrics statements="9" coveredstatements="9" conditionals="15" coveredconditionals="15" methods="2" coveredmethods="2"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="31" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="32" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="12" type="stmt"/>
+        <line num="37" count="12" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="12" type="stmt"/>
+        <line num="43" count="12" type="stmt"/>
+        <line num="67" count="36" type="stmt"/>
+        <line num="86" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="lib.utils">
+      <metrics statements="14" coveredstatements="14" conditionals="14" coveredconditionals="12" methods="5" coveredmethods="5"/>
+      <file name="format.ts" path="/Users/porkycode/Documents/porky/test_millon/frontend/src/lib/utils/format.ts">
+        <metrics statements="14" coveredstatements="14" conditionals="14" coveredconditionals="12" methods="5" coveredmethods="5"/>
+        <line num="2" count="67" type="stmt"/>
+        <line num="14" count="33" type="cond" truecount="1" falsecount="1"/>
+        <line num="16" count="33" type="stmt"/>
+        <line num="23" count="33" type="stmt"/>
+        <line num="27" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="28" count="3" type="stmt"/>
+        <line num="31" count="4" type="cond" truecount="4" falsecount="0"/>
+        <line num="32" count="2" type="stmt"/>
+        <line num="35" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="40" count="5" type="cond" truecount="2" falsecount="0"/>
+        <line num="41" count="3" type="stmt"/>
+        <line num="43" count="2" type="stmt"/>
+        <line num="47" count="5" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

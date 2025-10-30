@@ -1,0 +1,67 @@
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+
+# Visual Studio
+.vs/
+.vscode/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+
+# Environment
+.env
+.env.local
+.env.production
+
+# macOS
+.DS_Store
+*.swp
+*.swo
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# Docker
+Dockerfile
+.dockerignore
+docker-compose*.yml
+
+# Documentation
+*.md
+!README.md
+
+# Scripts
+scripts/
+
+# Database
+*.db
+*.sqlite
+*.sqlite3

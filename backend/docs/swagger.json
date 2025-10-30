@@ -1,0 +1,541 @@
+{
+    "openapi": "3.0.4",
+    "info": {
+        "title": "Real Estate Property Management API",
+        "description": "API for managing real estate properties, owners, and property information",
+        "contact": {
+            "name": "Development Team",
+            "email": "dev@realestate.com"
+        },
+        "version": "v1"
+    },
+    "paths": {
+        "/health": {
+            "get": {
+                "tags": [
+                    "Health"
+                ],
+                "operationId": "HealthCheck",
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                }
+            }
+        },
+        "/api/properties": {
+            "get": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Get a paginated list of properties with optional filtering",
+                "parameters": [
+                    {
+                        "name": "Name",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "Address",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "MinPrice",
+                        "in": "query",
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
+                    {
+                        "name": "MaxPrice",
+                        "in": "query",
+                        "schema": {
+                            "type": "number",
+                            "format": "double"
+                        }
+                    },
+                    {
+                        "name": "Year",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "SortBy",
+                        "in": "query",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "SortDescending",
+                        "in": "query",
+                        "schema": {
+                            "type": "boolean"
+                        }
+                    },
+                    {
+                        "name": "PageNumber",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "PageSize",
+                        "in": "query",
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the paginated list of properties",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PropertyListDtoPagedResultDto"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "If the filter parameters are invalid",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ValidationProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "If an internal server error occurs"
+                    }
+                }
+            }
+        },
+        "/api/properties/{id}": {
+            "get": {
+                "tags": [
+                    "Properties"
+                ],
+                "summary": "Get detailed information about a specific property",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Property identifier",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the property details",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/PropertyDetailDto"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "If the property is not found",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "If an internal server error occurs"
+                    }
+                }
+            }
+        },
+        "/api/seed": {
+            "post": {
+                "tags": [
+                    "Seed"
+                ],
+                "summary": "Seeds the database with sample data",
+                "parameters": [
+                    {
+                        "name": "force",
+                        "in": "query",
+                        "description": "If true, clears existing data before seeding",
+                        "schema": {
+                            "type": "boolean",
+                            "default": false
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Database seeded successfully"
+                    },
+                    "403": {
+                        "description": "Forbidden in production environment",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ProblemDetails"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "If seeding fails"
+                    }
+                }
+            }
+        },
+        "/api/seed/stats": {
+            "get": {
+                "tags": [
+                    "Seed"
+                ],
+                "summary": "Gets database statistics",
+                "responses": {
+                    "200": {
+                        "description": "Returns document counts"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "OwnerBasicDto": {
+                "type": "object",
+                "properties": {
+                    "idOwner": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "OwnerDto": {
+                "type": "object",
+                "properties": {
+                    "idOwner": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "address": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "photo": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "birthday": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ProblemDetails": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "detail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "instance": {
+                        "type": "string",
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": {}
+            },
+            "PropertyDetailDto": {
+                "type": "object",
+                "properties": {
+                    "idProperty": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "address": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "codeInternal": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "year": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "idOwner": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "owner": {
+                        "$ref": "#/components/schemas/OwnerDto"
+                    },
+                    "images": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PropertyImageDto"
+                        },
+                        "nullable": true
+                    },
+                    "traces": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PropertyTraceDto"
+                        },
+                        "nullable": true
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PropertyImageDto": {
+                "type": "object",
+                "properties": {
+                    "idPropertyImage": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "idProperty": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "file": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "enabled": {
+                        "type": "boolean"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PropertyListDto": {
+                "type": "object",
+                "properties": {
+                    "idProperty": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "address": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "price": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "codeInternal": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "year": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "imageUrl": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "owner": {
+                        "$ref": "#/components/schemas/OwnerBasicDto"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PropertyListDtoPagedResultDto": {
+                "type": "object",
+                "properties": {
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/PropertyListDto"
+                        },
+                        "nullable": true
+                    },
+                    "pageNumber": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "pageSize": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "totalCount": {
+                        "type": "integer",
+                        "format": "int64"
+                    },
+                    "totalPages": {
+                        "type": "integer",
+                        "format": "int32",
+                        "readOnly": true
+                    },
+                    "hasPreviousPage": {
+                        "type": "boolean",
+                        "readOnly": true
+                    },
+                    "hasNextPage": {
+                        "type": "boolean",
+                        "readOnly": true
+                    }
+                },
+                "additionalProperties": false
+            },
+            "PropertyTraceDto": {
+                "type": "object",
+                "properties": {
+                    "idPropertyTrace": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "idProperty": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "dateSale": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "name": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "value": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "tax": {
+                        "type": "number",
+                        "format": "double"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "updatedAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                },
+                "additionalProperties": false
+            },
+            "ValidationProblemDetails": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "title": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "status": {
+                        "type": "integer",
+                        "format": "int32",
+                        "nullable": true
+                    },
+                    "detail": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "instance": {
+                        "type": "string",
+                        "nullable": true
+                    },
+                    "errors": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "nullable": true
+                    }
+                },
+                "additionalProperties": {}
+            }
+        }
+    }
+}
